@@ -22,6 +22,8 @@ class BarChartVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        barChartView.delegate = self
+        
         let sales = DataGenerator.data()
         var salesEntries = [ChartDataEntry]()
         var salesMonths = [String]()
@@ -86,7 +88,7 @@ class BarChartVC: UIViewController {
         barChartView.doubleTapToZoomEnabled = false
         
         /* Disable the ability to tap a bar in the chart */
-        barChartView.highlighter = nil
+        // barChartView.highlighter = nil
         
         /* Remove the right axis and gridlines */
         barChartView.rightAxis.enabled = false
@@ -95,8 +97,28 @@ class BarChartVC: UIViewController {
         /* Add animation */
         barChartView.animate(yAxisDuration: 1.5, easingOption: .EaseInOutQuart)
         
+        /* Add a limit line */
+        let ll = ChartLimitLine(limit: 800.0, label: "Yikes!")
+        barChartView.rightAxis.addLimitLine(ll)
         
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func saveTapped(sender: AnyObject) {
         
+        barChartView.saveToCameraRoll()
+        
+    }
+    
+}
+
+// MARK: - Touch Events
+
+extension BarChartVC: ChartViewDelegate {
+    
+    func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
+        print("\(entry.value)")
     }
     
 }
