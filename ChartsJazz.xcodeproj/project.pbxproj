@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		4EC93FFC1D6CDCBF00F850B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC93FFB1D6CDCBF00F850B9 /* AppDelegate.swift */; };
-		4EC93FFE1D6CDCBF00F850B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC93FFD1D6CDCBF00F850B9 /* ViewController.swift */; };
 		4EC940011D6CDCBF00F850B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC93FFF1D6CDCBF00F850B9 /* Main.storyboard */; };
 		4EC940031D6CDCBF00F850B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EC940021D6CDCBF00F850B9 /* Assets.xcassets */; };
 		4EC940061D6CDCBF00F850B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC940041D6CDCBF00F850B9 /* LaunchScreen.storyboard */; };
+		4EC9400F1D6CDD4500F850B9 /* BarChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC9400E1D6CDD4500F850B9 /* BarChartVC.swift */; };
+		A478BC69594CE8E56E95C549 /* Pods_ChartsJazz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5A195D9A8288F84DF41626 /* Pods_ChartsJazz.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		096D1FD8CB58387BD4BF8F0B /* Pods-ChartsJazz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChartsJazz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChartsJazz/Pods-ChartsJazz.debug.xcconfig"; sourceTree = "<group>"; };
+		3E5A195D9A8288F84DF41626 /* Pods_ChartsJazz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChartsJazz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EC93FF81D6CDCBF00F850B9 /* ChartsJazz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChartsJazz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EC93FFB1D6CDCBF00F850B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4EC93FFD1D6CDCBF00F850B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4EC940001D6CDCBF00F850B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4EC940021D6CDCBF00F850B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EC940051D6CDCBF00F850B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4EC940071D6CDCBF00F850B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EC9400E1D6CDD4500F850B9 /* BarChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartVC.swift; sourceTree = "<group>"; };
+		F2A8690FF8B1E320F3A67A77 /* Pods-ChartsJazz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChartsJazz.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChartsJazz/Pods-ChartsJazz.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A478BC69594CE8E56E95C549 /* Pods_ChartsJazz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				4EC93FFA1D6CDCBF00F850B9 /* ChartsJazz */,
 				4EC93FF91D6CDCBF00F850B9 /* Products */,
+				8E74B532A99AE7389D4C798D /* Pods */,
+				B90A692F4435C3FCF134CF09 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +61,47 @@
 		4EC93FFA1D6CDCBF00F850B9 /* ChartsJazz */ = {
 			isa = PBXGroup;
 			children = (
-				4EC93FFB1D6CDCBF00F850B9 /* AppDelegate.swift */,
-				4EC93FFD1D6CDCBF00F850B9 /* ViewController.swift */,
-				4EC93FFF1D6CDCBF00F850B9 /* Main.storyboard */,
-				4EC940021D6CDCBF00F850B9 /* Assets.xcassets */,
-				4EC940041D6CDCBF00F850B9 /* LaunchScreen.storyboard */,
 				4EC940071D6CDCBF00F850B9 /* Info.plist */,
+				4EC93FFB1D6CDCBF00F850B9 /* AppDelegate.swift */,
+				4EC940101D6CDD6A00F850B9 /* Assets */,
+				4EC9400D1D6CDD2600F850B9 /* Controller */,
 			);
 			path = ChartsJazz;
+			sourceTree = "<group>";
+		};
+		4EC9400D1D6CDD2600F850B9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4EC9400E1D6CDD4500F850B9 /* BarChartVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4EC940101D6CDD6A00F850B9 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				4EC940041D6CDCBF00F850B9 /* LaunchScreen.storyboard */,
+				4EC93FFF1D6CDCBF00F850B9 /* Main.storyboard */,
+				4EC940021D6CDCBF00F850B9 /* Assets.xcassets */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		8E74B532A99AE7389D4C798D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				096D1FD8CB58387BD4BF8F0B /* Pods-ChartsJazz.debug.xcconfig */,
+				F2A8690FF8B1E320F3A67A77 /* Pods-ChartsJazz.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B90A692F4435C3FCF134CF09 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E5A195D9A8288F84DF41626 /* Pods_ChartsJazz.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +111,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4EC9400A1D6CDCBF00F850B9 /* Build configuration list for PBXNativeTarget "ChartsJazz" */;
 			buildPhases = (
+				25C7D47FD9FBC953F0599E5B /* [CP] Check Pods Manifest.lock */,
 				4EC93FF41D6CDCBF00F850B9 /* Sources */,
 				4EC93FF51D6CDCBF00F850B9 /* Frameworks */,
 				4EC93FF61D6CDCBF00F850B9 /* Resources */,
+				2AF988358EFDF46AFE3C2C52 /* [CP] Embed Pods Frameworks */,
+				DE6CBF8E4C686FFF4365BD24 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,13 +174,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		25C7D47FD9FBC953F0599E5B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2AF988358EFDF46AFE3C2C52 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChartsJazz/Pods-ChartsJazz-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE6CBF8E4C686FFF4365BD24 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChartsJazz/Pods-ChartsJazz-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4EC93FF41D6CDCBF00F850B9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EC93FFE1D6CDCBF00F850B9 /* ViewController.swift in Sources */,
 				4EC93FFC1D6CDCBF00F850B9 /* AppDelegate.swift in Sources */,
+				4EC9400F1D6CDD4500F850B9 /* BarChartVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +339,7 @@
 		};
 		4EC9400B1D6CDCBF00F850B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 096D1FD8CB58387BD4BF8F0B /* Pods-ChartsJazz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ChartsJazz/Info.plist;
@@ -259,6 +351,7 @@
 		};
 		4EC9400C1D6CDCBF00F850B9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2A8690FF8B1E320F3A67A77 /* Pods-ChartsJazz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ChartsJazz/Info.plist;
@@ -287,6 +380,7 @@
 				4EC9400C1D6CDCBF00F850B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
