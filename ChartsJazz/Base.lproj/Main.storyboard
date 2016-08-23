@@ -23,7 +23,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gv-mA-h8P">
-                                <rect key="frame" x="20" y="0.0" width="34" height="30"/>
+                                <rect key="frame" x="20" y="8" width="34" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="b71-el-08d"/>
                                 </constraints>
@@ -37,7 +37,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="EaQ-9i-hwb" secondAttribute="trailing" constant="20" id="EjV-jq-ewv"/>
                             <constraint firstItem="3gv-mA-h8P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="FNG-wf-aIX"/>
-                            <constraint firstItem="3gv-mA-h8P" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="JKY-qr-8f1"/>
+                            <constraint firstItem="3gv-mA-h8P" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="8" id="JKY-qr-8f1"/>
                             <constraint firstItem="EaQ-9i-hwb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="MhS-kE-H7M"/>
                             <constraint firstItem="EaQ-9i-hwb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="cMH-Sn-lku"/>
                             <constraint firstItem="EaQ-9i-hwb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="iDU-4f-C1c"/>
@@ -61,7 +61,7 @@
         <!--Item-->
         <scene sceneID="PtO-Xb-se8">
             <objects>
-                <viewController id="WSI-LB-oRx" sceneMemberID="viewController">
+                <viewController id="WSI-LB-oRx" customClass="LineAndPieVC" customModule="ChartsJazz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YGt-gO-mG6"/>
                         <viewControllerLayoutGuide type="bottom" id="KXQ-9p-DfA"/>
@@ -69,9 +69,33 @@
                     <view key="view" contentMode="scaleToFill" id="eBA-Wm-5KV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ii9-BZ-ErR" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="21" width="600" height="261"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AB1-SN-iIw" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="290" width="600" height="261"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AB1-SN-iIw" firstAttribute="top" secondItem="Ii9-BZ-ErR" secondAttribute="bottom" constant="8" id="85H-e6-3AV"/>
+                            <constraint firstItem="KXQ-9p-DfA" firstAttribute="top" secondItem="AB1-SN-iIw" secondAttribute="bottom" id="ONy-ti-YMO"/>
+                            <constraint firstItem="Ii9-BZ-ErR" firstAttribute="leading" secondItem="eBA-Wm-5KV" secondAttribute="leading" id="TZn-mr-P5g"/>
+                            <constraint firstItem="AB1-SN-iIw" firstAttribute="leading" secondItem="eBA-Wm-5KV" secondAttribute="leading" id="cXf-Dm-4FE"/>
+                            <constraint firstAttribute="trailing" secondItem="Ii9-BZ-ErR" secondAttribute="trailing" id="dR2-xb-kiY"/>
+                            <constraint firstAttribute="trailing" secondItem="AB1-SN-iIw" secondAttribute="trailing" id="rfj-kf-QGE"/>
+                            <constraint firstItem="AB1-SN-iIw" firstAttribute="height" secondItem="Ii9-BZ-ErR" secondAttribute="height" id="wnM-ex-GAf"/>
+                            <constraint firstItem="Ii9-BZ-ErR" firstAttribute="top" secondItem="eBA-Wm-5KV" secondAttribute="top" constant="21" id="zuf-jp-Dp8"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Z6M-k0-VcD"/>
+                    <connections>
+                        <outlet property="lineChartView" destination="Ii9-BZ-ErR" id="1U1-Uk-Pqc"/>
+                        <outlet property="pieChartView" destination="AB1-SN-iIw" id="3iY-ts-ZDP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cE2-hG-yTl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
