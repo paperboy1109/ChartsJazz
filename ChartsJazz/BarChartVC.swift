@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import Charts
 
 class BarChartVC: UIViewController {
+    
+    // MARK: - Outlets
 
+    @IBOutlet var barChartView: BarChartView!
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

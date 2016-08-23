@@ -16,11 +16,27 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EaQ-9i-hwb" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="28" width="560" height="545"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="EaQ-9i-hwb" secondAttribute="trailing" constant="20" id="EjV-jq-ewv"/>
+                            <constraint firstItem="EaQ-9i-hwb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="cMH-Sn-lku"/>
+                            <constraint firstItem="EaQ-9i-hwb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="iDU-4f-C1c"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EaQ-9i-hwb" secondAttribute="bottom" constant="27" id="q3c-JY-gJX"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="barChartView" destination="EaQ-9i-hwb" id="dLc-jf-Phi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="360" y="400"/>
         </scene>
     </scenes>
 </document>
