@@ -166,6 +166,9 @@ class LineAndPieVC: UIViewController {
             lineChartView.drawGridBackgroundEnabled = false
             
             lineChartView.leftAxis.drawGridLinesEnabled = false
+            //lineChartView.leftAxis.enabled = false
+            lineChartView.leftAxis.axisMinValue = 0.0
+            
             lineChartView.rightAxis.drawGridLinesEnabled = false
             lineChartView.rightAxis.enabled = false            
             
@@ -211,6 +214,10 @@ class LineAndPieVC: UIViewController {
             /* Add animation */
             lineChartView.animate(yAxisDuration: 1.5, easingOption: .EaseInOutQuart)
             
+            /* Disable tap behavior (collapses data) */
+            lineChartView.userInteractionEnabled = false
+            
+            /* Remove labels from the data points */
             lineChartView.data?.setValueTextColor(UIColor.clearColor())
         }
 
