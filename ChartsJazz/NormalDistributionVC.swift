@@ -23,9 +23,17 @@ class NormalDistributionVC: UIViewController {
         super.viewDidLoad()
         
         /* Create some sample data */
-        let xValues = [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0]//["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-        let yValues = [2.0, 4.0, 8.0, 12.0, 8.0, 4.0, 2.0]
-        let dataForRemovingFill = [0.0, 0.0, 20.0, 20.0, 0.0, 0.0, 0.0]
+        let xValues = [-3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0]//["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+        
+        // let yValues = [2.0, 4.0, 8.0, 12.0, 8.0, 4.0, 2.0]
+        var yValues: [Double] = []
+        
+        for item in xValues {
+            yValues.append(easyQuadratic(item))
+        }
+        
+        let dataForRemovingFill = [Double](count: xValues.count, repeatedValue:0.0) //[0.0, 0.0, 0.0, 0.0, 0.0]
+        // var sprites = [SKSpriteNode?](count:64, repeatedValue: nil)
         let dataToPlot = [yValues, dataForRemovingFill, yValues]
         
         /* Configure the plot view */
@@ -79,6 +87,10 @@ class NormalDistributionVC: UIViewController {
     
     func shade_pNorm(xValues: [Double], dataCollections: [[Double]], shadeLeftTail: Bool) {
         
+        let xValuesAsStrings = xValues.map { String($0) }
+        
+        let bezierIntensity:CGFloat = 0.1
+        
         /* Create (potentially mutiple) arrays of data entries that will be used to create line chart and pie chart data set objects*/
         var completeDataEntriesCollection: [[ChartDataEntry]] = [[]]
         
@@ -110,6 +122,8 @@ class NormalDistributionVC: UIViewController {
         lineChartDataSet_Layer1.fillColor = UIColor.redColor()
         lineChartDataSet_Layer1.drawFilledEnabled = true
         lineChartDataSet_Layer1.drawCirclesEnabled = false
+        lineChartDataSet_Layer1.mode = .CubicBezier
+        lineChartDataSet_Layer1.cubicIntensity = bezierIntensity
         
         /* Customize the appearance of line 2 */
         lineChartDataSet_Layer2.setColor(plotBackgroundColor)
@@ -122,20 +136,32 @@ class NormalDistributionVC: UIViewController {
         /* Customize the appearance of line 3 */
         lineChartDataSet_Layer3.setColor(lineColor)
         lineChartDataSet_Layer3.drawCirclesEnabled = false
+        lineChartDataSet_Layer3.mode = .CubicBezier
+        lineChartDataSet_Layer3.cubicIntensity = bezierIntensity
+
+
         
         
         let linesToPlot = [lineChartDataSet_Layer1, lineChartDataSet_Layer2, lineChartDataSet_Layer3]
-        let lineChartData = LineChartData(xVals: xValues, dataSets: linesToPlot)
+        
+        let lineChartData = LineChartData(xVals: xValuesAsStrings, dataSets: linesToPlot)
         
         /* Set the data to be included in the plot */
         normalDistributionView.data = lineChartData
-                
+        
         /* Remove labels from the data points */
         normalDistributionView.data?.setValueTextColor(UIColor.clearColor())
         
         // normalDistributionView.xAxis.axisMinValue
+        normalDistributionView.leftAxis.axisMinValue = dataCollections[0].minElement()!
+        normalDistributionView.rightAxis.axisMinValue = dataCollections[0].minElement()!
+    }
+    
+    func easyQuadratic(xValue: Double) -> Double {
         
+        let yValue = pow(2, (-0.25) * xValue * xValue) //pow((xValue - 2.0), 2) + 1
         
+        return yValue
     }
     
     
