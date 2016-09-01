@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E5279301D78BC08003DE2CF /* NormalDistributionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E52792F1D78BC08003DE2CF /* NormalDistributionVC.swift */; };
 		4EC93FFC1D6CDCBF00F850B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC93FFB1D6CDCBF00F850B9 /* AppDelegate.swift */; };
 		4EC940011D6CDCBF00F850B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC93FFF1D6CDCBF00F850B9 /* Main.storyboard */; };
 		4EC940031D6CDCBF00F850B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EC940021D6CDCBF00F850B9 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		096D1FD8CB58387BD4BF8F0B /* Pods-ChartsJazz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChartsJazz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChartsJazz/Pods-ChartsJazz.debug.xcconfig"; sourceTree = "<group>"; };
 		3E5A195D9A8288F84DF41626 /* Pods_ChartsJazz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChartsJazz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E52792F1D78BC08003DE2CF /* NormalDistributionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalDistributionVC.swift; sourceTree = "<group>"; };
 		4EC93FF81D6CDCBF00F850B9 /* ChartsJazz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChartsJazz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EC93FFB1D6CDCBF00F850B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EC940001D6CDCBF00F850B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			children = (
 				4EC9400E1D6CDD4500F850B9 /* BarChartVC.swift */,
 				4EC940171D6CEE5F00F850B9 /* LineAndPieVC.swift */,
+				4E52792F1D78BC08003DE2CF /* NormalDistributionVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				4EC940151D6CE08D00F850B9 /* DataGenerator.swift in Sources */,
 				4EC940131D6CE07100F850B9 /* Sale.swift in Sources */,
 				4EC9400F1D6CDD4500F850B9 /* BarChartVC.swift in Sources */,
+				4E5279301D78BC08003DE2CF /* NormalDistributionVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

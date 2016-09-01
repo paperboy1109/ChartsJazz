@@ -6,6 +6,40 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--NormalDistribution-->
+        <scene sceneID="Cgu-AB-zzC">
+            <objects>
+                <viewController title="NormalDistribution" id="B6n-c9-TJW" customClass="NormalDistributionVC" customModule="ChartsJazz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ued-Df-zCY"/>
+                        <viewControllerLayoutGuide type="bottom" id="v9Q-eI-vFf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Opv-MR-R2c">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qUo-EW-U7b" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="28" width="560" height="515"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="v9Q-eI-vFf" firstAttribute="top" secondItem="qUo-EW-U7b" secondAttribute="bottom" constant="8" id="5qa-9L-pHv"/>
+                            <constraint firstItem="qUo-EW-U7b" firstAttribute="trailing" secondItem="Opv-MR-R2c" secondAttribute="trailingMargin" id="JKp-ZY-U0X"/>
+                            <constraint firstItem="qUo-EW-U7b" firstAttribute="leading" secondItem="Opv-MR-R2c" secondAttribute="leadingMargin" id="KE1-QA-NnA"/>
+                            <constraint firstItem="qUo-EW-U7b" firstAttribute="top" secondItem="ued-Df-zCY" secondAttribute="bottom" constant="8" id="uN1-LY-zYS"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="NormalDistribution" id="YUT-XO-GMS"/>
+                    <connections>
+                        <outlet property="normalDistributionView" destination="qUo-EW-U7b" id="VlC-4D-eap"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X5N-HB-4IV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1167" y="-292"/>
+        </scene>
         <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -112,6 +146,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="iil-Tv-wt8"/>
+                        <segue destination="B6n-c9-TJW" kind="relationship" relationship="viewControllers" id="fBc-iJ-Rcc"/>
                         <segue destination="WSI-LB-oRx" kind="relationship" relationship="viewControllers" id="1Xz-Nz-WMw"/>
                     </connections>
                 </tabBarController>

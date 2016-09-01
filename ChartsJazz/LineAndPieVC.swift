@@ -31,7 +31,6 @@ class LineAndPieVC: UIViewController {
         
         let dataForSecondLine = [0.0, 0.0, 20.0, 20.0, 20.0, 20.0]
         
-        
         let dataToPlot = [unitsSold, dataForSecondLine, unitsSold]
         
         //setChart(months, values: unitsSold)
