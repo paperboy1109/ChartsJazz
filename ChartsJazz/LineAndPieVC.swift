@@ -59,7 +59,27 @@ class LineAndPieVC: UIViewController {
         
         let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Units Sold")
         let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
+        
+        /* Caution: Experimental  ------------------- */
+        
+        // lineChartData.
+        // LineChartRenderer
+        
+        // lineChartDataSet.dra
+        // lineChartDataSet.drawFilledEnabled
+        lineChartDataSet.fillColor = UIColor.redColor() // COLOR FOR AREA UNDER THE CURVE
+        lineChartDataSet.drawCirclesEnabled = false // don't show large data points
+        lineChartDataSet.drawFilledEnabled = true // AREA UNDER THE CURVE
+        lineChartDataSet.drawVerticalHighlightIndicatorEnabled = true  //?
+        
+        
+        /* ------------------------------------ */
+        
         lineChartView.data = lineChartData
+        
+        /* Customize the look of the line chart */
+        // lineChartView.backgroundColor =  UIColor.blueColor()
+        //lineChartView
         
     }
     

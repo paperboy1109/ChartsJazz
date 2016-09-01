@@ -101,6 +101,9 @@ class BarChartVC: UIViewController {
         let ll = ChartLimitLine(limit: 800.0, label: "Yikes!")
         barChartView.rightAxis.addLimitLine(ll)
         
+        /* Others ? */
+        
+        
     }
     
     // MARK: - Actions
