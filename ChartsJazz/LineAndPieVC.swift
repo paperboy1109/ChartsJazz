@@ -14,7 +14,7 @@ class LineAndPieVC: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var lineChartView: LineChartView!
-    @IBOutlet weak var pieChartView: PieChartView!    
+    @IBOutlet weak var pieChartView: PieChartView!
     
     // MARK: - Lifecycle
     
@@ -25,7 +25,12 @@ class LineAndPieVC: UIViewController {
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
         let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
         
-        setChart(months, values: unitsSold)
+        let dataForSecondLine = [20.0, 4.0, 6.0, 0.0, 0.0, 0.0]
+        
+        let dataToPlot = [unitsSold, dataForSecondLine]
+        
+        //setChart(months, values: unitsSold)
+        setCharts(months, dataCollections: dataToPlot)
     }
     
     // MARK: - Helpers
@@ -58,20 +63,36 @@ class LineAndPieVC: UIViewController {
         
         
         let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Units Sold")
-        let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
+        let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet) // plot one line
         
         /* Caution: Experimental  ------------------- */
         
         // lineChartData.
+        
         // LineChartRenderer
         
-        // lineChartDataSet.dra
-        // lineChartDataSet.drawFilledEnabled
-        lineChartDataSet.fillColor = UIColor.redColor() // COLOR FOR AREA UNDER THE CURVE
-        lineChartDataSet.drawCirclesEnabled = false // don't show large data points
-        lineChartDataSet.drawFilledEnabled = true // AREA UNDER THE CURVE
-        lineChartDataSet.drawVerticalHighlightIndicatorEnabled = true  //?
+        // lineChartDataSet.
         
+        // Shade the area under the curve = documentation's "line surface area"
+        lineChartDataSet.fillColor = UIColor.redColor() // COLOR FOR AREA UNDER THE CURVE
+        lineChartDataSet.drawFilledEnabled = true // AREA UNDER THE CURVE
+        
+        lineChartDataSet.mode = .CubicBezier // mode by which to join the points
+        
+        lineChartDataSet.cubicIntensity = 0.25 // min 0.05 (looks linear), max = 1
+        
+        lineChartDataSet.drawVerticalHighlightIndicatorEnabled = true  //?
+        if (lineChartDataSet.isVerticalHighlightIndicatorEnabled) {
+            print("The vertical highlight indicator is enabled")
+        }
+        
+        
+        lineChartDataSet.setColor(UIColor.blueColor()) // Change the color of the entire line
+        
+        // super ugly, but it's clear what does what
+        lineChartDataSet.drawCirclesEnabled = true
+        lineChartDataSet.circleHoleColor = UIColor.greenColor()
+        lineChartDataSet.circleColors = [UIColor.brownColor()]
         
         /* ------------------------------------ */
         
@@ -83,6 +104,67 @@ class LineAndPieVC: UIViewController {
         
     }
     
+    func setCharts(dataPoints: [String], dataCollections: [[Double]]) {
+        
+        /* Create (potentially mutiple) arrays of data entries that will be used to create line chart and pie chart data set objects*/
+        var completeDataEntriesCollection: [[ChartDataEntry]] = [[]]
+        
+        for item in dataCollections {
+            
+            var newDataCollection: [ChartDataEntry] = []
+            
+            for i in 0..<dataPoints.count {
+                let dataEntry = ChartDataEntry(value: item[i], xIndex: i)
+                newDataCollection.append(dataEntry)
+            }
+            
+            completeDataEntriesCollection.append(newDataCollection)
+            
+        }
+        
+        completeDataEntriesCollection.removeFirst()
+        
+        /* Create and configure the Pie chart data */
+        let pieChartDataSet = PieChartDataSet(yVals: completeDataEntriesCollection[0], label: "Units Sold")
+        let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
+        pieChartView.data = pieChartData
+        var colors: [UIColor] = []
+        for _ in 0..<dataPoints.count {
+            let red = Double(arc4random_uniform(256))
+            let green = Double(arc4random_uniform(256))
+            let blue = Double(arc4random_uniform(256))
+            
+            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
+            colors.append(color)
+        }
+        pieChartDataSet.colors = colors
+        
+        /* Create and configure the Line chart data */
+        if completeDataEntriesCollection.count == 2 {
+            let lineChartDataSet1 = LineChartDataSet(yVals: completeDataEntriesCollection[0], label: "Line 1")
+            let lineChartDataSet2 = LineChartDataSet(yVals: completeDataEntriesCollection[1], label: "Line 1")
+            
+            /* Customize the appearance of the lines */
+            lineChartDataSet1.setColor(UIColor.blueColor())
+            lineChartDataSet1.fillColor = UIColor.blackColor()
+            lineChartDataSet1.drawFilledEnabled = true
+            // lineChartDataSet1.fillAlpha = 1.0
+            
+            lineChartDataSet2.setColor(UIColor.greenColor())
+            lineChartDataSet2.fillColor = UIColor.whiteColor()
+            lineChartDataSet2.drawFilledEnabled = true
+            lineChartDataSet2.fillAlpha = 1.0
+            //lineChartDataSet2.mode = .CubicBezier
+            //lineChartDataSet2.cubicIntensity = 0.05
+            
+            let linesToPlot = [lineChartDataSet1, lineChartDataSet2]
+            let lineChartData = LineChartData(xVals: dataPoints, dataSets: linesToPlot) // plot multiple lines
+            lineChartView.data = lineChartData
+        }
+        
+        
+        
+    }
     
     
 }
