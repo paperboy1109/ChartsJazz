@@ -25,9 +25,14 @@ class LineAndPieVC: UIViewController {
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
         let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
         
-        let dataForSecondLine = [20.0, 4.0, 6.0, 0.0, 0.0, 0.0]
+//        if let maximumValue = unitsSold.maxElement() {
+//            let topLinePlotFillValue = maximumValue
+//        }
         
-        let dataToPlot = [unitsSold, dataForSecondLine]
+        let dataForSecondLine = [0.0, 0.0, 20.0, 20.0, 20.0, 20.0]
+        
+        
+        let dataToPlot = [unitsSold, dataForSecondLine, unitsSold]
         
         //setChart(months, values: unitsSold)
         setCharts(months, dataCollections: dataToPlot)
@@ -128,21 +133,14 @@ class LineAndPieVC: UIViewController {
         let pieChartDataSet = PieChartDataSet(yVals: completeDataEntriesCollection[0], label: "Units Sold")
         let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
         pieChartView.data = pieChartData
-        var colors: [UIColor] = []
-        for _ in 0..<dataPoints.count {
-            let red = Double(arc4random_uniform(256))
-            let green = Double(arc4random_uniform(256))
-            let blue = Double(arc4random_uniform(256))
-            
-            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
-            colors.append(color)
-        }
-        pieChartDataSet.colors = colors
+        
+        let color = ChartColorTemplates.joyful() // other: .liberty, .pastel, .colorful and .vordiplom
+        pieChartDataSet.colors = color
         
         /* Create and configure the Line chart data */
         if completeDataEntriesCollection.count == 2 {
             let lineChartDataSet1 = LineChartDataSet(yVals: completeDataEntriesCollection[0], label: "Line 1")
-            let lineChartDataSet2 = LineChartDataSet(yVals: completeDataEntriesCollection[1], label: "Line 1")
+            let lineChartDataSet2 = LineChartDataSet(yVals: completeDataEntriesCollection[1], label: "Line 2")
             
             /* Customize the appearance of the lines */
             lineChartDataSet1.setColor(UIColor.blueColor())
@@ -156,11 +154,66 @@ class LineAndPieVC: UIViewController {
             lineChartDataSet2.fillAlpha = 1.0
             //lineChartDataSet2.mode = .CubicBezier
             //lineChartDataSet2.cubicIntensity = 0.05
+            lineChartDataSet2.mode = .Stepped
             
             let linesToPlot = [lineChartDataSet1, lineChartDataSet2]
             let lineChartData = LineChartData(xVals: dataPoints, dataSets: linesToPlot) // plot multiple lines
             lineChartView.data = lineChartData
+            
+        } else if completeDataEntriesCollection.count == 3 {
+            
+            lineChartView.xAxis.drawGridLinesEnabled = false            
+            lineChartView.drawGridBackgroundEnabled = false
+            
+            lineChartView.leftAxis.drawGridLinesEnabled = false
+            lineChartView.rightAxis.drawGridLinesEnabled = false
+            lineChartView.rightAxis.enabled = false            
+            
+            
+            let linePlotBackgroundColor = UIColor.whiteColor()
+            lineChartView.backgroundColor = linePlotBackgroundColor
+            
+            let lineChartDataSet1 = LineChartDataSet(yVals: completeDataEntriesCollection[0], label: "Line 1")
+            let lineChartDataSet2 = LineChartDataSet(yVals: completeDataEntriesCollection[1], label: "Line 2")
+            let lineChartDataSet3 = LineChartDataSet(yVals: completeDataEntriesCollection[2], label: "Line 3")
+            
+            let lineColor = UIColor.blueColor()
+                
+            /* Customize the appearance of line 1 */
+            lineChartDataSet1.setColor(lineColor)
+            lineChartDataSet1.fillColor = UIColor.redColor()
+            lineChartDataSet1.drawFilledEnabled = true
+            lineChartDataSet1.drawCirclesEnabled = false
+            
+            /* Customize the appearance of line 2 */
+            lineChartDataSet2.setColor(linePlotBackgroundColor)
+            lineChartDataSet2.fillColor = linePlotBackgroundColor 
+            lineChartDataSet2.drawFilledEnabled = true
+            lineChartDataSet2.fillAlpha = 1.0            
+            lineChartDataSet2.mode = .Stepped
+            lineChartDataSet2.drawCirclesEnabled = false
+            
+            /* Customize the appearance of line 3 */
+            lineChartDataSet3.setColor(lineColor)
+            lineChartDataSet3.drawCirclesEnabled = false
+
+            
+            let linesToPlot = [lineChartDataSet1, lineChartDataSet2, lineChartDataSet3]
+            let lineChartData = LineChartData(xVals: dataPoints, dataSets: linesToPlot) // plot multiple lines
+            lineChartView.data = lineChartData
+            
+            /* Remove the legend */            
+            lineChartView.legend.enabled = false
+            
+            /* Remove the description */
+            lineChartView.descriptionText = ""
+            
+            /* Add animation */
+            lineChartView.animate(yAxisDuration: 1.5, easingOption: .EaseInOutQuart)
+            
+            lineChartView.data?.setValueTextColor(UIColor.clearColor())
         }
+
         
         
         

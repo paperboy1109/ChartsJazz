@@ -68,7 +68,7 @@ class BarChartVC: UIViewController {
         /* Add some labeling */
         barChartView.xAxis.labelPosition = .Bottom
         
-        /* Don't skip an labels */
+        /* Don't skip any labels */
         barChartView.xAxis.setLabelsToSkip(0)
         
         /* Scale the chart */
