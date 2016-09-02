@@ -22,12 +22,12 @@ class LineAndPieVC: UIViewController {
         super.viewDidLoad()
         
         /* Create some sample data */
-        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+        let months =  ["Jan", "Feb", "Mar"] //["Jan", "Feb", "Mar", "Apr", "May", "Jun"] //[1.0, 3.0, 5.0, 10.0, 11.0, 12.0]
         let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
         
-//        if let maximumValue = unitsSold.maxElement() {
-//            let topLinePlotFillValue = maximumValue
-//        }
+        //        if let maximumValue = unitsSold.maxElement() {
+        //            let topLinePlotFillValue = maximumValue
+        //        }
         
         let dataForSecondLine = [0.0, 0.0, 20.0, 20.0, 20.0, 20.0]
         
@@ -109,6 +109,7 @@ class LineAndPieVC: UIViewController {
     }
     
     func setCharts(dataPoints: [String], dataCollections: [[Double]]) {
+        //func setCharts(dataPoints: [Double], dataCollections: [[Double]]) {
         
         /* Create (potentially mutiple) arrays of data entries that will be used to create line chart and pie chart data set objects*/
         var completeDataEntriesCollection: [[ChartDataEntry]] = [[]]
@@ -161,7 +162,7 @@ class LineAndPieVC: UIViewController {
             
         } else if completeDataEntriesCollection.count == 3 {
             
-            lineChartView.xAxis.drawGridLinesEnabled = false            
+            lineChartView.xAxis.drawGridLinesEnabled = false
             lineChartView.drawGridBackgroundEnabled = false
             
             lineChartView.leftAxis.drawGridLinesEnabled = false
@@ -169,7 +170,7 @@ class LineAndPieVC: UIViewController {
             lineChartView.leftAxis.axisMinValue = 0.0
             
             lineChartView.rightAxis.drawGridLinesEnabled = false
-            lineChartView.rightAxis.enabled = false            
+            lineChartView.rightAxis.enabled = false
             
             
             let linePlotBackgroundColor = UIColor.whiteColor()
@@ -180,31 +181,32 @@ class LineAndPieVC: UIViewController {
             let lineChartDataSet3 = LineChartDataSet(yVals: completeDataEntriesCollection[2], label: "Line 3")
             
             let lineColor = UIColor.blueColor()
-                
+            
             /* Customize the appearance of line 1 */
             lineChartDataSet1.setColor(lineColor)
             lineChartDataSet1.fillColor = UIColor.redColor()
             lineChartDataSet1.drawFilledEnabled = true
-            lineChartDataSet1.drawCirclesEnabled = false
+            lineChartDataSet1.drawCirclesEnabled = true
+            lineChartDataSet1.circleColors = ChartColorTemplates.liberty()
             
             /* Customize the appearance of line 2 */
             lineChartDataSet2.setColor(linePlotBackgroundColor)
-            lineChartDataSet2.fillColor = linePlotBackgroundColor 
+            lineChartDataSet2.fillColor = linePlotBackgroundColor
             lineChartDataSet2.drawFilledEnabled = true
-            lineChartDataSet2.fillAlpha = 1.0            
+            lineChartDataSet2.fillAlpha = 1.0
             lineChartDataSet2.mode = .Stepped
             lineChartDataSet2.drawCirclesEnabled = false
             
             /* Customize the appearance of line 3 */
             lineChartDataSet3.setColor(lineColor)
             lineChartDataSet3.drawCirclesEnabled = false
-
+            
             
             let linesToPlot = [lineChartDataSet1, lineChartDataSet2, lineChartDataSet3]
             let lineChartData = LineChartData(xVals: dataPoints, dataSets: linesToPlot) // plot multiple lines
             lineChartView.data = lineChartData
             
-            /* Remove the legend */            
+            /* Remove the legend */
             lineChartView.legend.enabled = false
             
             /* Remove the description */
@@ -219,7 +221,7 @@ class LineAndPieVC: UIViewController {
             /* Remove labels from the data points */
             lineChartView.data?.setValueTextColor(UIColor.clearColor())
         }
-
+        
         
         
         

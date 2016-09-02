@@ -19,21 +19,58 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qUo-EW-U7b" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="28" width="560" height="515"/>
+                                <rect key="frame" x="20" y="28" width="560" height="254"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMB-h0-YQ2">
+                                <rect key="frame" x="20" y="290" width="560" height="253"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8iw-gp-DEs">
+                                        <rect key="frame" x="8" y="8" width="97" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWc-zp-J9l">
+                                        <rect key="frame" x="113" y="8" width="109" height="30"/>
+                                        <state key="normal" title="Show p-value"/>
+                                        <connections>
+                                            <action selector="pValueTapped:" destination="B6n-c9-TJW" eventType="touchUpInside" id="nA7-9M-89C"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCb-fd-E60">
+                                        <rect key="frame" x="8" y="62" width="220" height="77"/>
+                                        <color key="backgroundColor" red="0.58345192000000001" green="1" blue="0.76295332800000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="v9Q-eI-vFf" firstAttribute="top" secondItem="qUo-EW-U7b" secondAttribute="bottom" constant="8" id="5qa-9L-pHv"/>
+                            <constraint firstItem="v9Q-eI-vFf" firstAttribute="top" secondItem="qUo-EW-U7b" secondAttribute="bottom" constant="8" symbolic="YES" id="5qa-9L-pHv"/>
+                            <constraint firstItem="iMB-h0-YQ2" firstAttribute="trailing" secondItem="Opv-MR-R2c" secondAttribute="trailingMargin" id="Bxk-0Y-7JG"/>
                             <constraint firstItem="qUo-EW-U7b" firstAttribute="trailing" secondItem="Opv-MR-R2c" secondAttribute="trailingMargin" id="JKp-ZY-U0X"/>
                             <constraint firstItem="qUo-EW-U7b" firstAttribute="leading" secondItem="Opv-MR-R2c" secondAttribute="leadingMargin" id="KE1-QA-NnA"/>
+                            <constraint firstItem="v9Q-eI-vFf" firstAttribute="top" secondItem="iMB-h0-YQ2" secondAttribute="bottom" constant="8" id="VcC-fy-WRx"/>
+                            <constraint firstItem="iMB-h0-YQ2" firstAttribute="top" secondItem="qUo-EW-U7b" secondAttribute="bottom" constant="8" id="iw7-e9-iCL"/>
+                            <constraint firstItem="iMB-h0-YQ2" firstAttribute="leading" secondItem="Opv-MR-R2c" secondAttribute="leadingMargin" id="kw4-o3-TEQ"/>
                             <constraint firstItem="qUo-EW-U7b" firstAttribute="top" secondItem="ued-Df-zCY" secondAttribute="bottom" constant="8" id="uN1-LY-zYS"/>
+                            <constraint firstItem="iMB-h0-YQ2" firstAttribute="height" secondItem="qUo-EW-U7b" secondAttribute="height" id="udk-f8-FMk"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5qa-9L-pHv"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="NormalDistribution" id="YUT-XO-GMS"/>
                     <connections>
                         <outlet property="normalDistributionView" destination="qUo-EW-U7b" id="VlC-4D-eap"/>
+                        <outlet property="pValueLabel" destination="nCb-fd-E60" id="V86-g1-H7j"/>
+                        <outlet property="zScoreTextField" destination="8iw-gp-DEs" id="j5w-kg-DDG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X5N-HB-4IV" userLabel="First Responder" sceneMemberID="firstResponder"/>
